@@ -108,11 +108,17 @@ rf_model = GridSearchCV(RandomForestClassifier(), {
     'criterion': ['gini', 'entropy'],
     'max_features': ['sqrt', 'log2', None]
 })
-
+'''
 print(rf_model.fit(X_scaled, y1))
 
 rf_description = pd.DataFrame(rf_model)
 print(rf_description[['param_criterion', 'param_max_features', 'param_n_estimators', 'mean_test_score']])
+'''
+
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y2, test_size=0.2, stratify=y2)
+rfr_best_model = RandomForestRegressor(n_estimators=50, max_features=None, criterion='squared_error')
+print(rfr_best_model.fit(X_train, y_train))
+print(rfr_best_model.score(X_test, y_test))
 
 
 
