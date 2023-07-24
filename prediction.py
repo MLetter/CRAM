@@ -1,5 +1,8 @@
+import main_1
 def prediction():
-    x =[["LOS_Y", "LOS", "Black", "White", "Asian", "Latino", "MI", "PVD", "CHF", "CVD", "DEMENT", "COPD", "DM Complicated", "DM Simple", "Renal Disease", "All CNS", "Pure CNS", "Stroke", "Seizure", "OldSyncope", "OldOtherNeuro", "OtherBmLsm", "Age.1"]
+    rfr_best_model = main_1.rfr_best_model
+
+    x =[["LOS_Y", "LOS", "Black", "White", "Asian", "Latino", "MI", "PVD", "CHF", "CVD", "DEMENT", "COPD", "DM Complicated", "DM Simple", "Renal Disease", "All CNS", "Pure CNS", "Stroke", "Seizure", "OldSyncope", "OldOtherNeuro", "OtherBmLsm", "Age.1"],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
     #Collect Length of Stay at a hospital data
@@ -172,3 +175,4 @@ def prediction():
     another = input("Would you like to make another prediction? (y/n)")
     if another == 'y':
         prediction()
+
