@@ -1,7 +1,4 @@
-
-
 '''
-MATT LETTERESE CS539-E23-E01 WPI
 Data set manipulation and training using RandomForestRegressor 
 '''
 
@@ -24,62 +21,7 @@ proDf = pd.concat([proDf, df.loc[:, 'Severity':'Age.1']], axis='columns')
 #print(proDf)
 
 
-O2_mean = df[df['OsSats'] > 0]['OsSats'].mean()
-proDf['o2sats'] = df['OsSats'].apply(lambda x: O2_mean if x == 0 else x)
 
-temp_mean = df[df['Temp'] > 0]['Temp'].mean()
-proDf['temp'] = df['Temp'].apply(lambda x: temp_mean if x < 0 else x)
-
-map_mean = df[df['MAP'] > 0]['MAP'].mean()
-proDf['map'] = df['MAP'].apply(lambda x: map_mean if x == 0 else x)
-
-ddimer_mean = df[df['Ddimer'] > 0]['Ddimer'].mean()
-proDf['ddimer'] = df['Ddimer'].apply(lambda x: ddimer_mean if x == 0 else x)
-
-plt_mean = df[df['Plts'] > 0]['Plts'].mean()
-proDf['plt'] = df['Plts'].apply(lambda x: plt_mean if x == 0 else x)
-
-inr_mean = df[df['INR'] > 0]['INR'].mean()
-proDf['inr'] = df['INR'].apply(lambda x: inr_mean if x == 0 else x)
-
-bun_mean = df[df['BUN'] > 0]['BUN'].mean()
-proDf['bun'] = df['BUN'].apply(lambda x: bun_mean if x == 0 else x)
-
-creatinine_mean = df[df['Creatinine'] > 0]['Creatinine'].mean()
-proDf['creatinine'] = df['Creatinine'].apply(lambda x: creatinine_mean if x == 0 else x)
-
-sodium_mean = df[df['Sodium'] > 0]['Sodium'].mean()
-proDf['sodium'] = df['Sodium'].apply(lambda x: sodium_mean if x == 0 else x)
-
-glucose_mean = df[df['Glucose'] > 0]['Glucose'].mean()
-proDf['glucose'] = df['Glucose'].apply(lambda x: glucose_mean if x == 0 else x)
-
-ast_mean = df[df['AST'] > 0]['AST'].mean()
-proDf['ast'] = df['AST'].apply(lambda x: ast_mean if x == 0 else x)
-
-alt_mean = df[df['ALT'] > 0]['ALT'].mean()
-proDf['alt'] = df['ALT'].apply(lambda x: alt_mean if x == 0 else x)
-
-wbc_mean = df[df['WBC'] > 0]['WBC'].mean()
-proDf['wbc'] = df['WBC'].apply(lambda x: alt_mean if x == 0 else x)
-
-lympho_mean = df[df['Lympho'] > 0]['Lympho'].mean()
-proDf['lympho'] = df['Lympho'].apply(lambda x: alt_mean if x == 0 else x)
-
-IL6_mean = df[df['IL6'] > 0]['IL6'].median()
-proDf['il6'] = df['IL6'].apply(lambda x: IL6_mean if x == 0 else x)
-
-ferritin_mean = df[df['Ferritin'] > 0]['Ferritin'].median()
-proDf['ferritin'] = df['Ferritin'].apply(lambda x: ferritin_mean if x == 0 else x)
-
-crct_mean = df[df['CrctProtein'] > 0]['CrctProtein'].mean()
-proDf['crct'] = df['CrctProtein'].apply(lambda x: crct_mean if x == 0 else x)
-
-procal_mean = df[df['Procalcitonin'] > 0]['Procalcitonin'].median()
-proDf['procalcitonin'] = df['Procalcitonin'].apply(lambda x: procal_mean if x == 0 else x)
-
-trop_mean = df[df['Troponin'] > 0]['Troponin'].median()
-proDf['troponin'] = df['Troponin'].apply(lambda x: procal_mean if x == 0 else x)
 
 #Assigns X and y for training 
 data = shuffle(proDf)
@@ -111,19 +53,18 @@ rf_model = rf_modelx.fit(X_scaled, y1)
 #print(rf_model.fit(X_scaled, y1))
 
 #this modual will look fot the best paramiters for the model
-rf_description = pd.DataFrame(rf_model.cv_results_)
+#rf_description = pd.DataFrame(rf_model.cv_results_)
 #print(rf_description[['param_criterion', 'param_max_features', 'param_n_estimators', 'mean_test_score']])
-print(rf_model.best_params_)
+#print(rf_model.best_params_)
 
 #trains the model
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y2, test_size=0.2, random_state=0)
 
 
 #input the best params 
-rfr_best_model = RandomForestRegressor(n_estimators=75, max_features='sqrt', criterion='squared_error')
+rfr_best_model = RandomForestRegressor(n_estimators=100, max_features='sqrt', criterion='squared_error')
 #rfr_best_model = LogisticRegression()
 rfr_best_model.fit(X_train, y_train)
-
 
 y_pred = rfr_best_model.predict(X_test)
 
@@ -136,43 +77,5 @@ df1.plot(kind='bar',figsize=(16,10))
 plt.grid(which='major', linestyle='-', linewidth='0.5', color='green')
 plt.grid(which='minor', linestyle=':', linewidth='0.5', color='black')
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
