@@ -1,6 +1,11 @@
 # CRAM
-Run prediction.py, this will train the model and
+1. The code is built using Python 3. You can download python from https://www.python.org/downloads/ 
+2. Next you will need a way to run the code. I suggest using an IDE for python such as PyCharm which can be downloaded here: https://www.jetbrains.com/pycharm/download/?section=windows 
+3. Run prediction.py, this will train the model and
 then prompt you to answer some questions.
+
+*****NOTE*****
+
 Answer these questions, be sure to follow the 
 instructions for answers. When you see '(y/n)', 
 make sure to type in either 'y' or 'n' in lower case.
