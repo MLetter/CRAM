@@ -4,7 +4,7 @@ def prediction():
 
     #x =[["LOS_Y", "LOS", "Black", "White", "Asian", "Latino", "MI", "PVD", "CHF", "CVD", "DEMENT", "COPD", "DM Complicated", "DM Simple", "Renal Disease", "All CNS", "Pure CNS", "Stroke", "Seizure", "OldSyncope", "OldOtherNeuro", "OtherBmLsm", "Age.1"],
     #   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-    x = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    x = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
     #Collect Length of Stay at a hospital data
     los_y = input("Did/are you staying at a hospital? (y/n)")
